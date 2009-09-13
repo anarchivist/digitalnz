@@ -13,7 +13,7 @@ Development Status :: 3 - Alpha
 
 setup(
     name = 'digitalnz',
-    version = '0.1.0',  # update digitalnz/__init__.py on release!
+    version = '0.2',  # update digitalnz/__init__.py on release!
     url = 'http://bitbucket.org/anarchivist/digitalnz/',
     author = 'Mark A. Matienzo',
     author_email = 'mark@matienzo.org',

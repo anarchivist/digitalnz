@@ -1,2 +1,5 @@
+v0.2 Sun Sep 13 11:26:44 EDT 2009
+- Patch from Philip Lindsay to ensure Python < 2.6 compatibility
+
 v0.1.0 Wed May 13 00:17:11 EDT 2009
 - initial release/commits

@@ -36,7 +36,7 @@ class DigitalNZAPI(object):
 
     def search(self, **kwargs):
         args = kwargs
-        req_url = '{0}/records/v{1}.{2}?api_key={3}&{4}'.format(\
+        req_url = '%s/records/v%s.%s?api_key=%s&%s' % (\
             self.base_url,
             self.version,
             self.format,
@@ -50,7 +50,7 @@ class DigitalNZAPI(object):
         args = kwargs
         if title is None:
             raise
-        req_url = '{0}/custom_searches/v{1}/{2}.{3}?api_key={4}&{5}'.format(\
+        req_url = '%s/custom_searches/v%s/%s.%s?api_key=%s&%s' % (\
             self.base_url,
             self.version,
             title,
@@ -64,7 +64,7 @@ class DigitalNZAPI(object):
     def metadata(self, rec_num=None):
         if rec_num is None:
             raise
-        req_url = '{0}/records/v{1}/{2}.{3}?api_key={4}'.format(\
+        req_url = '%s/records/v%s/%s.%s?api_key=%s' % (\
             self.base_url,
             self.version,
             rec_num,
@@ -75,7 +75,7 @@ class DigitalNZAPI(object):
 
         
     def partners(self):
-        req_url = '{0}/content_partners/v{1}.{2}?api_key={3}'.format(\
+        req_url = '%s/content_partners/v%s.%s?api_key=%s' % (\
             self.base_url,
             self.version,
             self.format,
