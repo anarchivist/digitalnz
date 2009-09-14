@@ -30,7 +30,12 @@ DEPENDENCIES
 ------------
 
 * simplejson or Python >= 2.6
-    
+
+USAGE
+-----
+
+See digitalnz/request.py and examples/digitalnz_search.py.
+
 LICENSE
 -------
 

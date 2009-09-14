@@ -21,11 +21,26 @@ from urllib import urlencode as uenc
 import urllib2
 from digitalnz.response import DigitalNZResponse
 
+
 class DigitalNZAPI(object):
-    """DigitalNZAPI: class to perform requests to the APIs"""
+    """DigitalNZAPI: class to perform requests to the APIs
+    
+    Example usage:
+    
+    >>> import digitalnz
+    >>> request = digitalnz.request.DigitalNZAPI(api_key=YOUR_API_KEY)
+    >>> result = request.search(search_text="hacker")
+    >>> print result.data.keys()
+    [u'start', u'num_results_requested', u'api_call', u'results', u'result_count']
+    >>> print result.data['result_count']
+    17
+    >>> print result.data['results'][0]
+    {u'category': u'Manuscripts', u'description': u'Trooper Arthur Hacker.World War I, 1914-1918.Auckland Mounted Rifles.Gallipoli, Turkey', u'title': u'Trooper Arthur Hacker', u'metadata_url': u'http://api.digitalnz.org/records/v1/151818', u'display_url': u'http://muse.aucklandmuseum.com/databases/Cenotaph/6052.detail', u'source_url': u'http://api.digitalnz.org/records/v1/151818/source', u'thumbnail_url': u'', u'content_provider': u'Auckland War Memorial Museum Tamaki Paenga Hira', u'date': u'', u'syndication_date': u'2009-03-25T06:40:19.932Z', u'id': u'151818'}
+    """
+
     def __init__(self, api_key=None, version=1, format='json', parsing=True):
         if api_key is None:
-            raise
+            raise RuntimeError, "Missing Digital NZ API key"
         else:
             self.api_key = api_key
         self.base_url = 'http://api.digitalnz.org'
@@ -73,7 +88,7 @@ class DigitalNZAPI(object):
         rsp = urllib2.urlopen(req_url).read()
         return DigitalNZResponse(self, rsp)
 
-        
+
     def partners(self):
         req_url = '%s/content_partners/v%s.%s?api_key=%s' % (\
             self.base_url,
